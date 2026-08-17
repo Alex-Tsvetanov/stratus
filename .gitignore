@@ -1,0 +1,76 @@
+# --- Secrets and local configuration ------------------------------------
+# Nothing with a real credential in it ever enters this repository.
+.env
+.env.*
+!.env.example
+*.pem
+*.pfx
+*.tfvars
+*.tfvars.json
+!example.tfvars
+credentials
+kubeconfig
+*.kubeconfig
+
+# --- Terraform / OpenTofu -----------------------------------------------
+.terraform/
+.terraform.lock.hcl
+*.tfstate
+*.tfstate.*
+crash.log
+crash.*.log
+tfplan
+*.tfplan
+
+# --- C++ / CMake ---------------------------------------------------------
+# Anchored to the root: a bare `build/` would also exclude docs/build, and git cannot
+# re-include a file whose parent directory is excluded, so the PDF rule below would die.
+/build/
+cmake-build-*/
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+compile_commands.json
+Testing/
+*.o
+*.obj
+*.a
+*.lib
+*.so
+*.so.*
+*.dylib
+*.dll
+*.exe
+*.pdb
+*.ilk
+*.gcda
+*.gcno
+*.gcov
+vcpkg_installed/
+
+# --- LaTeX ---------------------------------------------------------------
+*.aux
+*.log
+*.out
+*.toc
+*.bbl
+*.blg
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.lof
+*.lot
+*.lol
+# docs/build/ is regenerable, except the finished PDF, which is what gets handed in.
+docs/build/*
+!docs/build/Main.pdf
+
+# --- Measurements --------------------------------------------------------
+# Raw results are attached to the report deliberately, not swept in by accident.
+results/raw/*.tmp
+
+# --- Editors and OS ------------------------------------------------------
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
