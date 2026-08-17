@@ -1,0 +1,15 @@
+# pdfLaTeX, НЕ XeLaTeX (T2A + tempora).
+$pdf_mode = 1;
+$bibtex_use = 2;
+$out_dir = 'build';
+$clean_ext = 'bbl nav out snm synctex.gz run.xml';
+
+# ЗАДЪЛЖИТЕЛЕН ред. bibtex се изпълнява с работна директория build/, а не тук, така че
+# `references.bib` не се намира по относителен път. MiKTeX тогава го търси в собствената
+# си база от файлови имена и открива ЧУЖД файл със същото име: bibtex не дава грешка,
+# просто съобщава „didn't find a database entry“ за всеки ключ и произвежда празна
+# библиография. Измерено, не предположено. Редът долу добавя директорията на източника
+# към пътя за търсене на bibtex.
+# Пътят е ОТНОСИТЕЛЕН нарочно: latexmk вписва абсолютните пътища в BIBINPUTS в
+# unix форма (/d/GitHub/...), а bibtex на MiKTeX е Windows програма и не ги разбира.
+ensure_path('BIBINPUTS', '..');
