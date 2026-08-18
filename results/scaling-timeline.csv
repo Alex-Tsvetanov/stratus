@@ -1,0 +1,29 @@
+t_s,replicas,utilisation,raw_desired,desired,action,reason,rps
+3.00746,1,0,0,1,hold,"at target",0
+6.86841,1,0,0,1,hold,"at target",0
+10.2552,1,1.10087,1.57267,2,scale-up,"utilisation above target",22.4402
+15.6283,2,0.848035,2.42296,2,hold,"scale-up blocked by cooldown",34.6166
+20.2077,2,0.822367,2.34962,3,scale-up,"utilisation above target",33.4107
+25.6469,3,0.996477,4.27061,3,hold,"scale-up blocked by cooldown",59.3837
+30.1569,3,0.530634,2.27415,3,hold,"at target",32.3725
+33.2738,3,0.667127,2.85912,3,hold,"at target",40.4255
+36.3469,3,0.654499,2.805,3,hold,"at target",40.0241
+39.4224,3,0.652905,2.79816,3,hold,"at target",39.994
+42.5164,3,0.661135,2.83344,3,hold,"at target",39.7546
+45.575,3,0.660346,2.83005,3,hold,"at target",40.2141
+48.6538,3,0.654209,2.80375,3,hold,"at target",39.951
+51.7235,3,0.659584,2.82679,3,hold,"at target",40.0689
+54.795,3,0.6547,2.80586,3,hold,"at target",40.0455
+57.8863,3,0.646164,2.76928,3,hold,"at target",39.7882
+60.9476,3,0.0326797,0.140056,1,scale-down,"utilisation below target",1.95996
+68.9079,1,0,0,1,hold,"at target",0
+71.9147,1,0,0,1,hold,"at target",0
+74.9304,1,0,0,1,hold,"at target",0
+77.946,1,0,0,1,hold,"at target",0
+81.0349,1,0,0,1,hold,"at target",0
+84.0569,1,0,0,1,hold,"at target",0
+87.0638,1,0,0,1,hold,"at target",0
+90.0737,1,0,0,1,hold,"at target",0
+93.0947,1,0,0,1,hold,"at target",0
+96.7988,1,0,0,1,hold,"at target",0
+99.8137,1,0,0,1,hold,"at target",0
