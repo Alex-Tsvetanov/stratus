@@ -1,0 +1,79 @@
+# The local stack: N workers, a round robin reverse proxy in front, and a scraper.
+#
+# The worker service publishes no port and has no container_name, which is what makes
+# `docker compose up --scale worker=N` work: replicas differ only in their address, and
+# the proxy finds them by resolving the service name.
+#
+# Each replica is pinned to one CPU and runs a single request thread. That is the whole
+# point of the arrangement: capacity is then exactly one thread per replica, so fleet
+# utilisation is a number the controller can compute rather than guess.
+
+name: stratus
+
+services:
+  worker:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: stratus:local
+    command: ["/stratus-worker"]
+    environment:
+      STRATUS_PORT: "8081"
+      STRATUS_THREADS: "1"
+      STRATUS_DEFAULT_SIZE: "384"
+      STRATUS_DEFAULT_ITER: "500"
+    expose:
+      - "8081"
+    deploy:
+      resources:
+        limits:
+          cpus: "1.0"
+          memory: 128M
+    restart: unless-stopped
+
+  proxy:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: stratus:local
+    command: ["/stratus-proxy"]
+    environment:
+      STRATUS_PORT: "8080"
+      STRATUS_BACKEND_HOST: "worker"
+      STRATUS_BACKEND_PORT: "8081"
+      STRATUS_THREADS: "64"
+      # Rediscovery period. Short enough that a new replica takes traffic within a couple
+      # of seconds of starting, long enough not to resolve on every single request.
+      STRATUS_DISCOVERY_TTL_MS: "1000"
+    ports:
+      - "8080:8080"
+    depends_on:
+      - worker
+    restart: unless-stopped
+
+  # The in-stack metrics scraper. It is the controller binary in observe only mode: it
+  # polls the aggregated /metrics on a fixed period and writes the fleet timeline, but
+  # never calls docker. The scaling controller itself runs on the host, because scaling a
+  # compose project from inside one of its own containers would require handing that
+  # container the docker socket.
+  scraper:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: stratus:local
+    command:
+      - "/stratus-autoscaler"
+      - "--host"
+      - "proxy"
+      - "--port"
+      - "8080"
+      - "--interval"
+      - "2"
+      - "--dry-run"
+      - "--csv"
+      - "/out/fleet-metrics.csv"
+    depends_on:
+      - proxy
+    volumes:
+      - ./results:/out
+    restart: unless-stopped
