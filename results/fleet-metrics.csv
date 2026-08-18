@@ -1,0 +1,99 @@
+t_s,replicas,utilisation,raw_desired,desired,action,reason,rps
+2.00907,1,0,0,1,hold,"at target",0
+4.01189,1,0,0,1,hold,"at target",0
+6.01422,1,0,0,1,hold,"at target",0
+8.01667,1,0,0,1,hold,"at target",0
+10.0188,1,1.5419,2.20271,3,scale-up,"utilisation above target",31.4669
+13.5283,1,1.00967,1.44239,1,hold,"scale-up blocked by cooldown",20.5153
+17.0867,2,0.979053,2.79729,3,scale-up,"utilisation above target",39.906
+20.6473,2,0.965725,2.75921,2,hold,"scale-up blocked by cooldown",39.3195
+24.172,3,0.7881,3.37757,4,scale-up,"utilisation above target",46.5281
+27.7008,3,0.966999,4.14428,3,hold,"scale-up blocked by cooldown",58.3765
+30.8449,3,0.583917,2.5025,3,hold,"at target",35.6233
+32.9481,3,0.653737,2.80173,3,hold,"at target",39.9392
+35.0284,3,0.670124,2.87196,3,hold,"at target",40.3773
+37.1405,3,0.648286,2.77837,3,hold,"at target",39.771
+39.2392,3,0.653175,2.79932,3,hold,"at target",40.0251
+41.3292,3,0.634921,2.72109,3,hold,"at target",38.7554
+43.3616,3,0.690128,2.95769,3,hold,"at target",41.3319
+45.4596,3,0.635008,2.72146,3,hold,"at target",38.6075
+47.4845,3,0.655825,2.81068,3,hold,"at target",40.0016
+49.5261,3,0.672794,2.8834,3,hold,"at target",41.144
+51.6097,3,0.635673,2.72431,3,hold,"at target",38.875
+53.6521,3,0.679643,2.91276,3,hold,"at target",41.1291
+55.743,3,0.655066,2.80743,3,hold,"at target",40.1732
+57.8416,3,0.64961,2.78404,3,hold,"at target",40.0269
+59.9367,3,0.1654,0.708858,1,scale-down,"utilisation below target",10.0233
+61.9405,3,0,0,3,hold,"scale-down blocked by cooldown",0
+65.9464,1,0,0,1,hold,"at target",0
+67.9487,1,0,0,1,hold,"at target",0
+69.9512,1,0,0,1,hold,"at target",0
+71.9531,1,0,0,1,hold,"at target",0
+73.9561,1,0,0,1,hold,"at target",0
+75.9583,1,0,0,1,hold,"at target",0
+77.9609,1,0,0,1,hold,"at target",0
+79.9955,1,0,0,1,hold,"at target",0
+82.0178,1,0,0,1,hold,"at target",0
+84.0219,1,0,0,1,hold,"at target",0
+86.0243,1,0,0,1,hold,"at target",0
+88.0268,1,0,0,1,hold,"at target",0
+90.0289,1,0,0,1,hold,"at target",0
+92.0313,1,0,0,1,hold,"at target",0
+94.0336,1,0,0,1,hold,"at target",0
+96.0356,1,0,0,1,hold,"at target",0
+98.0379,1,0,0,1,hold,"at target",0
+100.04,1,0,0,1,hold,"at target",0
+102.042,1,0,0,1,hold,"at target",0
+104.045,1,0,0,1,hold,"at target",0
+106.047,1,0,0,1,hold,"at target",0
+108.05,1,0,0,1,hold,"at target",0
+110.052,1,0,0,1,hold,"at target",0
+112.054,1,0,0,1,hold,"at target",0
+114.056,1,0,0,1,hold,"at target",0
+116.059,1,0,0,1,hold,"at target",0
+118.061,1,0,0,1,hold,"at target",0
+120.063,1,0,0,1,hold,"at target",0
+122.066,1,0,0,1,hold,"at target",0
+124.068,1,0,0,1,hold,"at target",0
+126.07,1,0,0,1,hold,"at target",0
+128.073,1,0,0,1,hold,"at target",0
+130.075,1,0,0,1,hold,"at target",0
+132.077,1,0,0,1,hold,"at target",0
+134.08,1,0,0,1,hold,"at target",0
+136.082,1,0,0,1,hold,"at target",0
+138.084,1,0,0,1,hold,"at target",0
+140.087,1,0,0,1,hold,"at target",0
+142.09,1,0,0,1,hold,"at target",0
+144.092,1,0,0,1,hold,"at target",0
+146.095,1,0,0,1,hold,"at target",0
+148.097,1,0,0,1,hold,"at target",0
+150.099,1,0,0,1,hold,"at target",0
+152.101,1,0,0,1,hold,"at target",0
+154.103,1,0,0,1,hold,"at target",0
+156.106,1,0,0,1,hold,"at target",0
+158.108,1,0,0,1,hold,"at target",0
+160.11,1,0,0,1,hold,"at target",0
+162.112,1,0,0,1,hold,"at target",0
+164.114,1,0,0,1,hold,"at target",0
+166.117,1,0,0,1,hold,"at target",0
+168.119,1,0,0,1,hold,"at target",0
+170.121,1,0,0,1,hold,"at target",0
+172.123,1,0,0,1,hold,"at target",0
+174.126,1,0,0,1,hold,"at target",0
+176.128,1,0,0,1,hold,"at target",0
+178.13,1,0,0,1,hold,"at target",0
+180.132,1,0,0,1,hold,"at target",0
+182.134,1,0,0,1,hold,"at target",0
+184.136,1,0,0,1,hold,"at target",0
+186.139,1,0,0,1,hold,"at target",0
+188.141,1,0,0,1,hold,"at target",0
+190.143,1,0,0,1,hold,"at target",0
+192.145,1,0,0,1,hold,"at target",0
+194.148,1,0,0,1,hold,"at target",0
+196.15,1,0,0,1,hold,"at target",0
+198.152,1,0,0,1,hold,"at target",0
+200.155,1,0,0,1,hold,"at target",0
+202.157,1,0,0,1,hold,"at target",0
+204.159,1,0,0,1,hold,"at target",0
+206.162,1,0,0,1,hold,"at target",0
+208.164,1,0,0,1,hold,"at target",0

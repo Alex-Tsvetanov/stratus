@@ -1,0 +1,241 @@
+
+===== workers=1 concurrency=2 run=1 =====
+
+=== stratus-loadgen ===
+target            http://127.0.0.1:8080/work?size=384&iter=500
+concurrency       2
+rate requested    closed loop
+warmup / measure  5.0 s / 20.0 s
+requests ok       335
+requests failed   0
+throughput        16.75 req/s
+work rate         1234.94 Miter/s
+latency mean      118.95 ms
+latency p50       99.01 ms
+latency p90       169.25 ms
+latency p95       255.31 ms
+latency p99       411.99 ms
+latency max       528.51 ms
+samples written   D:\GitHub\stratus-cloud-computing\results\bench-latency-w1-run1.csv
+
+
+===== workers=1 concurrency=2 run=2 =====
+
+=== stratus-loadgen ===
+target            http://127.0.0.1:8080/work?size=384&iter=500
+concurrency       2
+rate requested    closed loop
+warmup / measure  5.0 s / 20.0 s
+requests ok       396
+requests failed   0
+throughput        19.80 req/s
+work rate         1459.81 Miter/s
+latency mean      100.86 ms
+latency p50       99.25 ms
+latency p90       106.20 ms
+latency p95       109.44 ms
+latency p99       120.55 ms
+latency max       156.43 ms
+samples written   D:\GitHub\stratus-cloud-computing\results\bench-latency-w1-run2.csv
+
+
+===== workers=1 concurrency=2 run=3 =====
+
+=== stratus-loadgen ===
+target            http://127.0.0.1:8080/work?size=384&iter=500
+concurrency       2
+rate requested    closed loop
+warmup / measure  5.0 s / 20.0 s
+requests ok       378
+requests failed   0
+throughput        18.90 req/s
+work rate         1393.46 Miter/s
+latency mean      105.70 ms
+latency p50       100.15 ms
+latency p90       115.88 ms
+latency p95       128.00 ms
+latency p99       203.35 ms
+latency max       298.27 ms
+samples written   D:\GitHub\stratus-cloud-computing\results\bench-latency-w1-run3.csv
+
+
+===== workers=2 concurrency=4 run=1 =====
+
+=== stratus-loadgen ===
+target            http://127.0.0.1:8080/work?size=384&iter=500
+concurrency       4
+rate requested    closed loop
+warmup / measure  5.0 s / 20.0 s
+requests ok       669
+requests failed   0
+throughput        33.45 req/s
+work rate         2466.20 Miter/s
+latency mean      120.02 ms
+latency p50       117.52 ms
+latency p90       175.72 ms
+latency p95       207.39 ms
+latency p99       285.80 ms
+latency max       324.29 ms
+samples written   D:\GitHub\stratus-cloud-computing\results\bench-latency-w2-run1.csv
+
+
+===== workers=2 concurrency=4 run=2 =====
+
+=== stratus-loadgen ===
+target            http://127.0.0.1:8080/work?size=384&iter=500
+concurrency       4
+rate requested    closed loop
+warmup / measure  5.0 s / 20.0 s
+requests ok       429
+requests failed   0
+throughput        21.45 req/s
+work rate         1581.47 Miter/s
+latency mean      185.80 ms
+latency p50       179.52 ms
+latency p90       282.37 ms
+latency p95       321.73 ms
+latency p99       433.96 ms
+latency max       439.23 ms
+samples written   D:\GitHub\stratus-cloud-computing\results\bench-latency-w2-run2.csv
+
+
+===== workers=2 concurrency=4 run=3 =====
+
+=== stratus-loadgen ===
+target            http://127.0.0.1:8080/work?size=384&iter=500
+concurrency       4
+rate requested    closed loop
+warmup / measure  5.0 s / 20.0 s
+requests ok       682
+requests failed   0
+throughput        34.10 req/s
+work rate         2514.12 Miter/s
+latency mean      117.39 ms
+latency p50       129.18 ms
+latency p90       183.66 ms
+latency p95       202.74 ms
+latency p99       244.84 ms
+latency max       266.61 ms
+samples written   D:\GitHub\stratus-cloud-computing\results\bench-latency-w2-run3.csv
+
+
+===== workers=4 concurrency=8 run=1 =====
+
+=== stratus-loadgen ===
+target            http://127.0.0.1:8080/work?size=384&iter=500
+concurrency       8
+rate requested    closed loop
+warmup / measure  5.0 s / 20.0 s
+requests ok       703
+requests failed   0
+throughput        35.15 req/s
+work rate         2591.54 Miter/s
+latency mean      227.02 ms
+latency p50       161.06 ms
+latency p90       493.66 ms
+latency p95       611.11 ms
+latency p99       711.22 ms
+latency max       774.88 ms
+samples written   D:\GitHub\stratus-cloud-computing\results\bench-latency-w4-run1.csv
+
+
+===== workers=4 concurrency=8 run=2 =====
+
+=== stratus-loadgen ===
+target            http://127.0.0.1:8080/work?size=384&iter=500
+concurrency       8
+rate requested    closed loop
+warmup / measure  5.0 s / 20.0 s
+requests ok       1198
+requests failed   0
+throughput        59.90 req/s
+work rate         4416.31 Miter/s
+latency mean      134.14 ms
+latency p50       104.38 ms
+latency p90       232.10 ms
+latency p95       304.19 ms
+latency p99       462.00 ms
+latency max       591.61 ms
+samples written   D:\GitHub\stratus-cloud-computing\results\bench-latency-w4-run2.csv
+
+
+===== workers=4 concurrency=8 run=3 =====
+
+=== stratus-loadgen ===
+target            http://127.0.0.1:8080/work?size=384&iter=500
+concurrency       8
+rate requested    closed loop
+warmup / measure  5.0 s / 20.0 s
+requests ok       1159
+requests failed   0
+throughput        57.95 req/s
+work rate         4272.54 Miter/s
+latency mean      137.98 ms
+latency p50       118.35 ms
+latency p90       222.94 ms
+latency p95       299.56 ms
+latency p99       399.33 ms
+latency max       667.11 ms
+samples written   D:\GitHub\stratus-cloud-computing\results\bench-latency-w4-run3.csv
+
+
+===== workers=6 concurrency=12 run=1 =====
+
+=== stratus-loadgen ===
+target            http://127.0.0.1:8080/work?size=384&iter=500
+concurrency       12
+rate requested    closed loop
+warmup / measure  5.0 s / 20.0 s
+requests ok       1302
+requests failed   0
+throughput        65.10 req/s
+work rate         4799.69 Miter/s
+latency mean      182.92 ms
+latency p50       115.53 ms
+latency p90       390.38 ms
+latency p95       523.00 ms
+latency p99       859.78 ms
+latency max       959.20 ms
+samples written   D:\GitHub\stratus-cloud-computing\results\bench-latency-w6-run1.csv
+
+
+===== workers=6 concurrency=12 run=2 =====
+
+=== stratus-loadgen ===
+target            http://127.0.0.1:8080/work?size=384&iter=500
+concurrency       12
+rate requested    closed loop
+warmup / measure  5.0 s / 20.0 s
+requests ok       1552
+requests failed   0
+throughput        77.60 req/s
+work rate         5721.29 Miter/s
+latency mean      155.08 ms
+latency p50       120.22 ms
+latency p90       244.28 ms
+latency p95       353.46 ms
+latency p99       888.83 ms
+latency max       1046.63 ms
+samples written   D:\GitHub\stratus-cloud-computing\results\bench-latency-w6-run2.csv
+
+
+===== workers=6 concurrency=12 run=3 =====
+
+=== stratus-loadgen ===
+target            http://127.0.0.1:8080/work?size=384&iter=500
+concurrency       12
+rate requested    closed loop
+warmup / measure  5.0 s / 20.0 s
+requests ok       778
+requests failed   0
+throughput        38.90 req/s
+work rate         2868.02 Miter/s
+latency mean      309.87 ms
+latency p50       234.45 ms
+latency p90       617.65 ms
+latency p95       743.56 ms
+latency p99       863.21 ms
+latency max       991.96 ms
+samples written   D:\GitHub\stratus-cloud-computing\results\bench-latency-w6-run3.csv
+
+
