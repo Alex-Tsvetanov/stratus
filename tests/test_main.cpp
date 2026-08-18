@@ -35,6 +35,15 @@ TEST(mandelbrot_deterministic) {
     const auto one = stratus::compute(1, 10);
     CHECK_EQ(one.checksum, static_cast<std::uint64_t>(10));
     CHECK_EQ(one.iterations, static_cast<std::uint64_t>(10));
+
+    // The standard unit of work, size 384 and ceiling 500, pinned to its exact iteration
+    // count. Every reported figure divides by this number, so a change to the kernel or
+    // to the window of the complex plane would silently rescale the whole results
+    // chapter; here it fails instead. 384 * 384 * 500 = 73 728 000 is the ceiling.
+    const auto unit = stratus::compute(384, 500);
+    CHECK_EQ(unit.iterations, static_cast<std::uint64_t>(18690064));
+    CHECK_EQ(unit.checksum, static_cast<std::uint64_t>(18690064));
+    CHECK(unit.iterations < static_cast<std::uint64_t>(73728000));
 }
 
 TEST(mandelbrot_interior_point_saturates) {
