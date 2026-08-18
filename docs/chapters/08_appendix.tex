@@ -1,31 +1,86 @@
 % ПРИЛОЖЕНИЯ, без номер.
-% Изходен текст, конфигурации, екранни форми, сурови резултати.
+% Изходен текст, конфигурации, сурови резултати.
 \section*{ПРИЛОЖЕНИЯ}
 \label{sec:appendix}
 \addcontentsline{toc}{section}{ПРИЛОЖЕНИЯ}
 
-\subsection*{Приложение А. Изходен текст на изчислителния работник}
+Приложените листинги са съществените части от изходния текст. Пълният текст е в
+хранилището на проекта.
 
-\TODO{Да се приложи изходният текст на работника, или съществените му части, чрез
-\code{\textbackslash lstinputlisting} от \code{src/}. Пълният текст е в хранилището на
-проекта.}
+\subsection*{Приложение А. Изчислителното ядро}
 
-\subsection*{Приложение Б. Описание на инфраструктурата}
+Единицата работа. Прозорецът в комплексната равнина е фиксиран нарочно, защото
+преместването му би променило обема работа при същите параметри.
 
-\TODO{Да се приложат кореновата конфигурация и двата модула за доставчици от
-\code{infra/}, без стойности на променливи, съдържащи идентификатори.}
+\lstinputlisting[language=C++, caption={\code{include/stratus/mandelbrot.hpp}},
+                 label={lst:mandelbrot}]{../include/stratus/mandelbrot.hpp}
 
-\subsection*{Приложение В. Сценарий за синтетично натоварване}
+\subsection*{Приложение Б. Политика за мащабиране}
 
-\TODO{Да се приложи сценарият от \code{load/}, заедно с точните параметри, с които е
-изпълнен при всяко измерване.}
+Частта, която обикновено е скрита вътре в облачния доставчик. Чиста функция, затова се
+проверява от модулни тестове без работещ клъстер.
 
-\subsection*{Приложение Г. Сурови резултати от измерванията}
+\lstinputlisting[language=C++, caption={\code{include/stratus/scaling.hpp}},
+                 label={lst:scaling}]{../include/stratus/scaling.hpp}
 
-\TODO{Да се приложат необработените изходни данни от измерванията, за да може
-получената в Раздел~\ref{sec:results} обработка да бъде проверена независимо.}
+\subsection*{Приложение В. Модел на разхода}
 
-\subsection*{Приложение Д. Екранни форми}
+Всяка цена е задължителен вход. В този файл няма нито една публикувана цена.
 
-\TODO{Да се приложат екранни изображения от таблото за наблюдение при всеки от трите
-експеримента, с обозначен доставчик и време на заснемане.}
+\lstinputlisting[language=C++, caption={\code{include/stratus/cost.hpp}},
+                 label={lst:cost}]{../include/stratus/cost.hpp}
+
+\subsection*{Приложение Г. Контейнерен образ и локален стек}
+
+\lstinputlisting[language=bash, caption={\code{Dockerfile}}, label={lst:dockerfile}]{../Dockerfile}
+
+\lstinputlisting[language=bash, caption={\code{docker-compose.yml}},
+                 label={lst:compose}]{../docker-compose.yml}
+
+\subsection*{Приложение Д. Описание на инфраструктурата}
+
+Общата част: обектът, който описва услугата, и изборът на модул. Двата модула за
+доставчици са в \code{infra/modules/} и не са включени тук заради обема им, 297 реда за
+AWS и 178 реда за Azure.
+
+\lstinputlisting[language=bash, caption={\code{infra/variables.tf}},
+                 label={lst:tfvars}]{../infra/variables.tf}
+
+\lstinputlisting[language=bash, caption={\code{infra/main.tf}},
+                 label={lst:tfmain}]{../infra/main.tf}
+
+\lstinputlisting[language=bash, caption={\code{infra/outputs.tf}},
+                 label={lst:tfout}]{../infra/outputs.tf}
+
+\subsection*{Приложение Е. Генератор на натоварване}
+
+Генераторът е на C++ и е част от същото дърво на изграждане. Параметрите, с които е
+изпълняван при всяко измерване, са записани в \code{bench.ps1} и \code{demo.ps1} и са
+възпроизведени в Раздел~\ref{sec:method}.
+
+\lstinputlisting[language=C++, caption={\code{src/loadgen\_main.cpp}},
+                 label={lst:loadgen}]{../src/loadgen_main.cpp}
+
+\subsection*{Приложение Ж. Сурови резултати от измерванията}
+
+Необработените изходни данни са в директорията \code{results/} на хранилището:
+
+\begin{itemize}[topsep=2pt,itemsep=1pt,leftmargin=*]
+\item \code{bench-throughput.csv}, таблицата от Раздел~\ref{sec:results} в машинен вид;
+\item \code{bench-throughput.txt}, пълните отчети на генератора за всяко повторение;
+\item \code{bench-latency-w\{1,2,4,6\}-run\{1,2,3\}.csv}, по един ред за всяка отделна
+      заявка, с отместване във времето, закъснение и изход;
+\item \code{bench-reaction.csv}, времената за реакция при увеличаване;
+\item \code{scaling-timeline.csv} и \code{autoscaler.log}, решенията на контролера;
+\item \code{latency.csv}, извадката от демонстрационното изпълнение;
+\item \code{fleet-metrics.csv}, записът на събирача вътре в стека.
+\end{itemize}
+
+Обработката в Раздел~\ref{sec:results} се свежда до медиана по три повторения и може да
+бъде проверена независимо от тези файлове.
+
+\subsection*{Приложение З. Екранни форми}
+
+\TODO{Да се приложат екранни изображения от таблото за наблюдение. Табло не е изграждано:
+метриките се четат от крайната точка \code{/metrics} и от файловете в \code{results/}, а
+изграждането на табло не добавя измерване, а само изглед към същите данни.}
