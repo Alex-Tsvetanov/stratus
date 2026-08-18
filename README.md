@@ -22,6 +22,13 @@ the same service definition points at either provider by changing one variable.
 | Autoscaling under load, end to end | **Runs.** Timeline in `results/` |
 | Terraform modules for AWS and Azure | **Written and formatted. Never applied.** |
 | Any measurement of AWS or Azure | **Does not exist** |
+| Object storage access from the worker | Provisioned by the modules, **not used by the worker binary** |
+
+The workload is purely computational and does not read or write objects. The modules
+create the bucket or container and pass its name and the identity to the container through
+environment variables, but there is no object-store client in the worker: any storage call
+would put network waiting inside a unit of work whose whole point is to be pure compute
+with a known cost.
 
 There are no cloud credentials and no `terraform` binary on the machine this was developed
 on. Nothing has been deployed to any cloud account, so no latency, scaling or cost figure
