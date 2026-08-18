@@ -68,6 +68,10 @@ docs/build/*
 # --- Measurements --------------------------------------------------------
 # Raw results are attached to the report deliberately, not swept in by accident.
 results/raw/*.tmp
+# The controller's stdout is raw measurement data, not a stray log: it is the only
+# record of a skipped interval, which the CSV cannot carry because a skipped interval
+# produces no decision row. The LaTeX *.log rule above would otherwise swallow it.
+!results/autoscaler.log
 
 # --- Editors and OS ------------------------------------------------------
 .vscode/

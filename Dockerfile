@@ -1,7 +1,7 @@
 # Multi-stage build.
 #
-# The build stage carries a compiler, CMake and Ninja; the final stage carries nothing at
-# all. Linking statically against musl makes that possible: the runtime image is the four
+# The build stage carries a compiler, CMake and make; the final stage carries nothing at
+# all. Linking statically against musl makes that possible: the runtime image is the five
 # executables and nothing else, so there is no package manager, no shell and no library to
 # keep patched. The cost is that the image has no tools for poking at a running container,
 # which is a fair trade for a workload whose only interface is three HTTP endpoints.
