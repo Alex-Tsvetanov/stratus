@@ -1,0 +1,11 @@
+build/
+cmake-build-*/
+docs/
+infra/
+results/
+.git/
+.github/
+*.md
+.env
+.env.*
+!.env.example
