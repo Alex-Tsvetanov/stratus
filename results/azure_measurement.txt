@@ -1,0 +1,59 @@
+Stratus, Azure Container Apps measurement
+Date: 2026-08-20
+Region: italynorth (Italy North, Milan). Azure for Students permits only
+  francecentral, switzerlandnorth, spaincentral, italynorth, denmarkeast.
+Endpoint: stratus-dev.agreeablemeadow-0a00d2a7.italynorth.azurecontainerapps.io
+Image: stratusacr4380.azurecr.io/stratus:v1
+Container: 1 vCPU, 2.00 GiB, STRATUS_THREADS=1
+Scaling: min_replicas 1, max_replicas 6, target_utilisation 0.70
+Client: stratus-loadgen from Sofia over the public internet, plain HTTP on port 80
+
+--- baseline, concurrency 1, 30 s ---
+requests ok 66, failed 0, throughput 2.20 req/s
+latency p50 120.24 ms, p90 1129.83 ms, p95 1133.61 ms, p99 15157.82 ms, max 15157.82 ms
+latency mean 592.61 ms
+
+--- scaling run, concurrency 32, 240 s after 10 s warmup ---
+requests ok 5698, failed 47, throughput 23.74 req/s, work rate 1750.43 Miter/s
+latency mean 1282.74 ms
+latency p50 1038.13 ms, p90 2655.77 ms, p95 3445.10 ms, p99 15160.97 ms, max 24152.75 ms
+
+--- replica count during the scaling run (seconds from load start, replicas) ---
+3,1
+12,1
+22,1
+32,1
+41,1
+51,1
+60,1
+71,1
+80,1
+89,1
+99,1
+108,2
+117,2
+126,2
+136,2
+145,2
+155,2
+164,2
+173,2
+183,2
+192,2
+201,2
+211,2
+221,2
+230,3
+240,3
+249,3
+259,3
+268,3
+
+First scale up 1 to 2 observed between 99 s and 108 s.
+Second scale up 2 to 3 observed between 221 s and 230 s.
+max_replicas 6 was never reached inside the 240 s window.
+
+--- cost ---
+Not obtainable from the API: Cost Management rejects the Azure for Students
+offer type (HTTP 422). The portal Education blade is the only source, and it
+lags behind consumption.

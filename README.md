@@ -20,8 +20,11 @@ the same service definition points at either provider by changing one variable.
 | Compute worker, proxy, load generator, autoscaler, cost model | Built, tested, measured |
 | Local docker-compose stack, N workers behind a proxy | **Runs.** Verified |
 | Autoscaling under load, end to end | **Runs.** Timeline in `results/` |
-| Terraform modules for AWS and Azure | **Written and formatted. Never applied.** |
-| Any measurement of AWS or Azure | **Does not exist** |
+| Terraform module for Azure | **Applied.** Nine resources, Italy North, then destroyed |
+| Terraform module for AWS | **Written and formatted. Never applied**, there are no AWS credits |
+| Measurement of Azure | **Exists.** `results/azure_measurement.txt`, raw samples in `results/azure_scaling.csv` |
+| Measurement of AWS | **Does not exist**, so the two provider comparison does not either |
+| Billed cost per unit of work | **Not obtainable.** Cost Management rejects the Azure for Students offer type with HTTP 422 |
 | Object storage access from the worker | Provisioned by the modules, **not used by the worker binary** |
 
 The workload is purely computational and does not read or write objects. The modules
