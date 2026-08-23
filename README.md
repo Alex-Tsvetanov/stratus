@@ -33,11 +33,14 @@ environment variables, but there is no object-store client in the worker: any st
 would put network waiting inside a unit of work whose whole point is to be pure compute
 with a known cost.
 
-There are no cloud credentials and no `terraform` binary on the machine this was developed
-on. Nothing has been deployed to any cloud account, so no latency, scaling or cost figure
-for either provider is reported anywhere. Every such cell in the report is left as a
-`\TODO` marker. The measurements that do exist are all local, on one machine, and the
-report says so.
+The Azure side has been deployed. The module was applied to a live subscription, nine
+resources in Italy North, measured from Sofia over the public internet, then destroyed.
+Those numbers are in `results/azure_measurement.txt` and `results/azure_scaling.csv`. The
+AWS side has not: there are no AWS credits, so the module has never been applied and no
+AWS latency, scaling or cost figure is reported anywhere. That also means there is no two
+provider comparison. Billed cost is missing for both, because Cost Management rejects the
+Azure for Students offer type. Everything else in the report is local, on one machine, and
+the report says so.
 
 ## Architecture
 
@@ -174,9 +177,10 @@ terraform init
 terraform plan -var-file=your.tfvars     # target_provider = "aws" or "azure"
 ```
 
-**This has never been run.** The modules are written to the documented resource schemas
-and formatted. They have not been validated against a live account, and `terraform` is not
-installed on the development machine. Treat them as unproven.
+**The Azure module has been applied**, nine resources in Italy North, measured, then
+destroyed. See `results/azure_measurement.txt`. **The AWS module has never been run.** It
+is written to the documented resource schemas and formatted, but it has not been validated
+against a live account. Treat the AWS path as unproven.
 
 ## Measured results
 
@@ -211,8 +215,8 @@ latexmk -pdf Main.tex
 Output lands in `docs/build/Main.pdf`, which is tracked on purpose. `latexmk` returns 0
 even when the bibliography silently fails, so check `docs/build/Main.blg` says
 "You've used 12 entries". Unfilled facts are marked `\TODO{...}` and can be listed with
-`grep -rn 'TODO' docs/`. The remaining markers are all things that require an actual
-deployment.
+`grep -rn 'TODO' docs/`. The chapters are clean. One marker is left, the faculty number
+on the title page.
 
 ## Security note
 
