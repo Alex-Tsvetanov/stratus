@@ -1,10 +1,10 @@
 # Azure module: Container Apps, with a storage account the revision reaches through a user
 # assigned managed identity rather than through a connection string.
 #
-# NOT APPLIED. There is no subscription and terraform is not installed on the machine this
-# was written on, so this configuration has never been run against a live subscription. It
-# is written to the documented resource schemas and formatted, and that is the entire claim
-# being made about it.
+# APPLIED once against an Azure for Students subscription (Italy North), measured from
+# Sofia, then destroyed. See results/azure_measurement.txt. Do not treat this file as a
+# live deployment: the run is gone. The AWS module remains unapplied; there are no AWS
+# credits.
 
 terraform {
   required_version = ">= 1.6"
