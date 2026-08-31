@@ -178,9 +178,10 @@ terraform plan -var-file=your.tfvars     # target_provider = "aws" or "azure"
 ```
 
 **The Azure module has been applied**, nine resources in Italy North, measured, then
-destroyed. See `results/azure_measurement.txt`. **The AWS module has never been run.** It
-is written to the documented resource schemas and formatted, but it has not been validated
-against a live account. Treat the AWS path as unproven.
+destroyed. See `results/azure_measurement.txt`. **The AWS module has never been applied.**
+It is written to the documented resource schemas and formatted; CI runs `terraform fmt`
+and `terraform validate` on it, which is not apply and does not create resources. There
+are no AWS credits. Treat the AWS path as unproven in production.
 
 ## Measured results
 
